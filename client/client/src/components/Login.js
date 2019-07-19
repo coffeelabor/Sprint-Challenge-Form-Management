@@ -32,7 +32,7 @@ export default withFormik({
     axios
       .post(url, values)
       .then(res => {
-        console.log("Res inside .then", res);
+        console.log("Res inside .then .post", res);
         localStorage.setItem("token", res.data.token);
         formikBag.props.history.push("/user");
       })
