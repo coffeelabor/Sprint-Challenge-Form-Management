@@ -1,6 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import axios from "axios";
+import * as Yup from "yup";
 
 const Login = ({ values, errors, touched, isSubmitting }) => {
   return (
@@ -39,5 +40,12 @@ export default withFormik({
       .catch(err => {
         console.log(err);
       });
-  }
+  },
+  validationSchema: Yup.object().shape({
+    username: Yup.string().required("hey not so fast, fill this out"),
+    password: Yup.string()
+      .min(4)
+      .max(16)
+      .required("put in a password")
+  })
 })(Login);
