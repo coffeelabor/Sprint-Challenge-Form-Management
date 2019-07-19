@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useToken } from "../hooks/useToken";
 import User from "./User";
 import Axios from "axios";
 
@@ -19,6 +20,8 @@ const UserList = ({ history }) => {
         });
     }
   }, [history]);
+  // const UserList = () => {
+  //   const useToken = ({history}) = ({}, [history])
 
   return (
     <div>
