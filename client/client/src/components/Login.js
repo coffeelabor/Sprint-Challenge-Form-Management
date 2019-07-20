@@ -29,12 +29,14 @@ export default withFormik({
   },
   handleSubmit: (values, formikBag) => {
     console.log("Values inside handlesubmit", values);
+    console.log("formikBag", formikBag);
     const url = "http://localhost:5000/api/register";
     axios
       .post(url, values)
       .then(res => {
         console.log("Res inside .then .post", res);
-        localStorage.setItem("token", res.data.token);
+        // localStorage.setItem("token", res.data.token);
+        formikBag.props.setToken(res.data.token);
         formikBag.props.history.push("/user");
       })
       .catch(err => {

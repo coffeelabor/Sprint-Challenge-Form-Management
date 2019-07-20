@@ -19,5 +19,9 @@ export const useToken = param => {
     }
   }, [param]);
 
-  return [state, setState];
+  const setValue = value => {
+    localStorage.setItem(param, value);
+  };
+
+  return [state, setState, setValue];
 };
